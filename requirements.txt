@@ -13,6 +13,7 @@ django-ckeditor==5.7.1
 django-js-asset==1.2.2
 fake-useragent==0.1.11
 filelock==3.0.12
+gunicorn==20.1.0
 idna==2.10
 importlib-metadata==2.1.1
 isort==4.3.21
@@ -42,5 +43,6 @@ urllib3==1.26.4
 virtualenv==20.4.6
 w3lib==1.22.0
 websockets==8.1
+whitenoise==5.2.0
 wrapt==1.12.1
 zipp==3.4.1
