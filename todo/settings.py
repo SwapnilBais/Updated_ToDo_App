@@ -1,6 +1,8 @@
 
-
+# import mongoengine
+# import pymongo
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'swapnil'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,14 +13,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '4dq_8o)0)**l=9n(#@u^d9*akz07l0-i)q&9h#vj4=-a7r)_87'
+# SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ab-mytodo.herokuapp.com']
-# ALLOWED_HOSTS = ['127.0.0.1', 'polar-gorge-88251.herokuapp.com']
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+# # ALLOWED_HOSTS = ['127.0.0.1', 'ab-mytodo.herokuapp.com']
 
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # Application definition
 
 INSTALLED_APPS = [
@@ -68,8 +74,17 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'djongo',
+        'NAME': 'Cluster0',
+
+        'HOST': 'mongodb+srv://SwapnilBais:SWap12@#$@cluster0.c2q9u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+        'USERNAME': 'SwapnilBais',
+        'PASSWORD': 'SWap12@#$',
+        'PORT': '27017',
+        # 'PORT': 27017,
+
+
     }
 }
 
@@ -115,3 +130,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'  # added
